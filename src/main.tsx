@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider, CssBaseline, Button, Box } from "@mui/material";
-import { getTheme } from "@/theme";
+import { getTheme } from "@/styles/theme";
 import App from "@/App";
 import Home from "./pages/home";
 
