@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider, CssBaseline, Button, Box } from "@mui/material";
-import { getTheme } from "@/styles/theme";
+import { getTheme } from "@/Styles/Theme";
 import App from "@/App";
-import Home from "./pages/home";
+import Home from "./Pages/home";
 
-const LoginPage = React.lazy(() => import("@/pages/auth/LoginPage"));
-const SignupPage = React.lazy(() => import("@/pages/auth/Signup"));
-const Todos = React.lazy(() => import("@/pages/Todos"));
+const LoginPage = React.lazy(() => import("@/Pages/auth/LoginPage"));
+const SignupPage = React.lazy(() => import("@/Pages/auth/Signup"));
+const Todos = React.lazy(() => import("@/Pages/Todos"));
 
-import withPublic from "@/hoc/withPublic";
-import withAuth from "@/hoc/withAuth";
+import withPublic from "@/Hoc/WithPublic";
+import withAuth from "@/Hoc/WithAuth";
 
 function MainApp() {
   const [mode, setMode] = useState<"light" | "dark">("light");

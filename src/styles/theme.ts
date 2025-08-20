@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { COLORS } from "@/styles/colors";
+import { COLORS } from "@/Styles/Colors";
 
 export function getTheme(mode: "light" | "dark") {
   return createTheme({
