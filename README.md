@@ -33,3 +33,8 @@ npm run dev
 
 
 ```
+
+## credentials
+
+usernmae:- admin
+password:- 1234

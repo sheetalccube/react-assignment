@@ -4,13 +4,13 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { getTheme } from "@/Styles/Theme";
 import App from "@/App";
-import Home from "./Pages/home";
+import Home from "./Pages/Home";
 
-const LoginPage = React.lazy(() => import("@/Pages/auth/LoginPage"));
-const SignupPage = React.lazy(() => import("@/Pages/auth/Signup"));
+const LoginPage = React.lazy(() => import("@/Pages/Auth/LoginPage"));
+const SignupPage = React.lazy(() => import("@/Pages/Auth/Signup"));
 const Todos = React.lazy(() => import("@/Pages/Todos"));
 
-import withPublic from "@/Hoc/WithPublic";
+import withPublic from "@/Hoc/withPublic";
 import withAuth from "@/Hoc/WithAuth";
 
 function MainApp() {
@@ -50,6 +50,6 @@ function MainApp() {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <MainApp />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 export default MainApp;
