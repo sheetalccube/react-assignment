@@ -1,14 +1,11 @@
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 
-// interface HeaderProps {
-//   mode: "light" | "dark";
-//   onToggleTheme: () => void;
-// }
-function Header( ) {
-
-
-// function Header({ mode, onToggleTheme }: HeaderProps) {
+interface HeaderProps {
+  mode: "light" | "dark";
+  onToggleTheme: () => void;
+}
+function Header({ mode, onToggleTheme }: HeaderProps) {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("token");
 
@@ -46,14 +43,14 @@ function Header( ) {
           <Box flexGrow={1} />
 
           {/* Toggle Theme Button */}
-          {/* <Button
+          <Button
             variant="outlined"
             color="inherit"
             onClick={onToggleTheme}
             sx={{ mr: 2 }}
           >
             {mode === "light" ? "Dark Mode" : "Light Mode"}
-          </Button> */}
+          </Button>
 
           {isLoggedIn ? (
             <Button variant="outlined" color="inherit" onClick={handleLogout}>

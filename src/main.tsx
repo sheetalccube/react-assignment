@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { ThemeProvider, CssBaseline, Button, Box } from "@mui/material";
+import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { getTheme } from "@/Styles/Theme";
 import App from "@/App";
 import Home from "./Pages/home";
@@ -15,6 +15,7 @@ import withAuth from "@/Hoc/WithAuth";
 
 function MainApp() {
   const [mode, setMode] = useState<"light" | "dark">("light");
+  const toggleTheme = () => setMode(mode === "light" ? "dark" : "light");
 
   const PublicLogin = withPublic(LoginPage);
   const PublicSignup = withPublic(SignupPage);
@@ -25,17 +26,12 @@ function MainApp() {
       <CssBaseline />
       <BrowserRouter>
         <Box sx={{ p: 2 }}>
-          <Button
-            variant="contained"
-            onClick={() => setMode(mode === "light" ? "dark" : "light")}
-            sx={{ mb: 2 }}
-          >
-            Toggle {mode === "light" ? "Dark" : "Light"} Mode
-          </Button>
-
           <React.Suspense fallback={<div>Loading...</div>}>
             <Routes>
-              <Route path="/" element={<App />}>
+              <Route
+                path="/"
+                element={<App mode={mode} onToggleTheme={toggleTheme} />}
+              >
                 <Route index element={<Navigate to="/home" replace />} />
                 <Route path="home" element={<Home />} />
                 <Route path="login" element={<PublicLogin />} />
