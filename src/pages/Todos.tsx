@@ -36,20 +36,6 @@ function Todos() {
       .min(5, "Description must be at least 5 characters"),
   });
 
-  const formik = useFormik({
-    initialValues: { name: "", description: "" },
-    validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      const newTodo: TodoItem = {
-        id: todos.length + 1,
-        name: values.name.trim(),
-        description: values.description.trim(),
-      };
-      setTodos([...todos, newTodo]);
-      resetForm();
-    },
-  });
-
   const [todos, setTodos] = useState<TodoItem[]>([
     { id: 1, name: "Buy groceries", description: "Milk, Bread, Eggs, Fruits" },
     { id: 2, name: "Workout", description: "Morning gym session at 7 AM" },
@@ -70,13 +56,49 @@ function Todos() {
     },
   ]);
 
+  const [editingTodo, setEditingTodo] = useState<TodoItem | null>(null);
+
+  const formik = useFormik({
+    initialValues: { name: "", description: "" },
+    validationSchema,
+    enableReinitialize: true,
+    onSubmit: (values, { resetForm }) => {
+      if (editingTodo) {
+        setTodos((prev) =>
+          prev.map((todo) =>
+            todo.id === editingTodo.id
+              ? {
+                  ...todo,
+                  name: values.name.trim(),
+                  description: values.description.trim(),
+                }
+              : todo
+          )
+        );
+        setEditingTodo(null);
+      } else {
+        const newTodo: TodoItem = {
+          id: todos.length + 1,
+          name: values.name.trim(),
+          description: values.description.trim(),
+        };
+        setTodos([...todos, newTodo]);
+      }
+      resetForm();
+    },
+  });
+
   function handleDelete(id: number) {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-  // function handleEdit(todo: TodoItem) {
-  //   console.log(todo, "111");
-  // }
+  function handleEdit(todo: TodoItem) {
+    setEditingTodo(todo);
+    formik.setValues({
+      name: todo.name,
+      description: todo.description,
+    });
+  }
 
   return (
     <div>
@@ -141,7 +163,7 @@ function Todos() {
           type="submit"
           size="large"
         >
-          Submit
+          {editingTodo ? "Update Todo" : "Add Todo"}
         </Button>
       </Box>
 
@@ -186,14 +208,14 @@ function Todos() {
                     <TableCell>{item.description}</TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={1}>
-                        {/* <Button
+                        <Button
                           variant="outlined"
                           color="primary"
                           size="small"
                           onClick={() => handleEdit(item)}
                         >
                           Edit
-                        </Button> */}
+                        </Button>
                         <Button
                           variant="outlined"
                           color="error"
