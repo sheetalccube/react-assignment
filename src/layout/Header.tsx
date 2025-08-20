@@ -1,5 +1,6 @@
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
+import useHeaderStyle from "./HeaderStyle";
 
 interface HeaderProps {
   mode: "light" | "dark";
@@ -8,6 +9,7 @@ interface HeaderProps {
 function Header({ mode, onToggleTheme }: HeaderProps) {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("token");
+  const style = useHeaderStyle();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -22,19 +24,13 @@ function Header({ mode, onToggleTheme }: HeaderProps) {
   return (
     <Box>
       <AppBar position="static" color="primary">
-        <Toolbar sx={{ gap: 3 }}>
+        <Toolbar sx={style.toolbar}>
           {navItems.map(({ label, path, end }) => (
             <NavLink
               key={path}
               to={path}
               end={end}
-              style={({ isActive }) => ({
-                color: "inherit",
-                textDecoration: "none",
-                fontWeight: isActive ? 700 : 500,
-                borderBottom: isActive ? "2px solid yellow" : "none",
-                paddingBottom: "2px",
-              })}
+              style={({ isActive }) => style.navLink(isActive)}
             >
               {label}
             </NavLink>
@@ -42,7 +38,6 @@ function Header({ mode, onToggleTheme }: HeaderProps) {
 
           <Box flexGrow={1} />
 
-          {/* Toggle Theme Button */}
           <Button
             variant="outlined"
             color="inherit"

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { getTheme } from "@/Styles/Theme";
 import App from "@/App";
-import Home from "./Pages/Home";
+import Home from "./Pages/Auth/Home/Home";
 
 const LoginPage = React.lazy(() => import("@/Pages/Auth/LoginPage"));
 const SignupPage = React.lazy(() => import("@/Pages/Auth/Signup"));
