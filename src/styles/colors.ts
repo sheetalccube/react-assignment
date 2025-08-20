@@ -1,17 +1,17 @@
-export const colors = {
-  primary: "#e91e63",
+export const COLORS = {
+  PRIMARY: "#E91E63",
 
-  light: {
-    textPrimary: "#000000",
-    textSecondary: "#333333",
-    background: "#ffffff",
-    paper: "#f5f5f5",
+  LIGHT: {
+    TEXT_PRIMARY: "#000000",
+    TEXT_SECONDARY: "#333333",
+    BACKGROUND: "#FFFFFF",
+    PAPER: "#F5F5F5",
   },
 
-  dark: {
-    textPrimary: "#ffffff",
-    textSecondary: "#eeeeee",
-    background: "#121212",
-    paper: "#1e1e1e",
+  DARK: {
+    TEXT_PRIMARY: "#FFFFFF",
+    TEXT_SECONDARY: "#EEEEEE",
+    BACKGROUND: "#121212",
+    PAPER: "#1E1E1E",
   },
 };

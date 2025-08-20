@@ -1,32 +1,32 @@
 import { createTheme } from "@mui/material/styles";
-import { colors } from "@/styles/colors";
+import { COLORS } from "@/styles/colors";
 
 export function getTheme(mode: "light" | "dark") {
   return createTheme({
     palette: {
       mode,
       primary: {
-        main: colors.primary,
+        main: COLORS.PRIMARY,
       },
       ...(mode === "dark"
         ? {
             text: {
-              primary: colors.dark.textPrimary,
-              secondary: colors.dark.textSecondary,
+              primary: COLORS.DARK.TEXT_PRIMARY,
+              secondary: COLORS.DARK.TEXT_SECONDARY,
             },
             background: {
-              default: colors.dark.background,
-              paper: colors.dark.paper,
+              default: COLORS.DARK.BACKGROUND,
+              paper: COLORS.DARK.PAPER,
             },
           }
         : {
             text: {
-              primary: colors.light.textPrimary,
-              secondary: colors.light.textSecondary,
+              primary: COLORS.LIGHT.TEXT_PRIMARY,
+              secondary: COLORS.LIGHT.TEXT_SECONDARY,
             },
             background: {
-              default: colors.light.background,
-              paper: colors.light.paper,
+              default: COLORS.LIGHT.BACKGROUND,
+              paper: COLORS.LIGHT.PAPER,
             },
           }),
     },
