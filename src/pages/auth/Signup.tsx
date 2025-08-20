@@ -52,9 +52,8 @@ export default function SignupForm() {
   });
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 6 }}
-    >
-      <Paper  sx={{ p: 4 }}>
+    <Container maxWidth="sm" sx={{ mt: 6 }}>
+      <Paper sx={{ p: 4 }}>
         <Typography variant="h4" align="center" gutterBottom>
           Sign Up
         </Typography>
@@ -166,8 +165,7 @@ export default function SignupForm() {
             variant="contained"
             fullWidth
             sx={{ mt: 2, py: 1.2 }}
-            disabled={!(formik.isValid && formik.dirty)} 
-
+            disabled={!(formik.isValid && formik.dirty)}
           >
             Sign Up
           </Button>

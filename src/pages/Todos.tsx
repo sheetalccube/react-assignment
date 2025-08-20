@@ -180,15 +180,9 @@ function Todos() {
                           : theme.palette.background.paper,
                     }}
                   >
-                    <TableCell >
-                      {item.id}
-                    </TableCell>
-                    <TableCell >
-                      {item.name}
-                    </TableCell>
-                    <TableCell >
-                      {item.description}
-                    </TableCell>
+                    <TableCell>{item.id}</TableCell>
+                    <TableCell>{item.name}</TableCell>
+                    <TableCell>{item.description}</TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={1}>
                         <Button

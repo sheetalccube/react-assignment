@@ -46,8 +46,7 @@ export default function Login() {
       display="flex"
       justifyContent="center"
       minHeight="90vh"
-      alignItems='center'
-
+      alignItems="center"
     >
       <Card>
         <CardContent>

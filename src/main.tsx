@@ -50,6 +50,6 @@ function MainApp() {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <MainApp />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 export default MainApp;
