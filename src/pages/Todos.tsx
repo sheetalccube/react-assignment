@@ -28,7 +28,8 @@ function Todos() {
     name: Yup.string()
       .trim()
       .required("Name is required")
-      .min(3, "Name must be at least 3 characters"),
+      .min(3, "Name must be at least 3 characters")
+      .matches(/^[a-zA-Z ]+$/, "Name should only contain letters and spaces"),
     description: Yup.string()
       .trim()
       .required("Description is required")
@@ -70,12 +71,12 @@ function Todos() {
   ]);
 
   function handleDelete(id: number) {
-    console.log(id, "---");
+    setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-  function handleEdit(todo: TodoItem) {
-    console.log(todo, "111");
-  }
+  // function handleEdit(todo: TodoItem) {
+  //   console.log(todo, "111");
+  // }
 
   return (
     <div>
@@ -185,14 +186,14 @@ function Todos() {
                     <TableCell>{item.description}</TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={1}>
-                        <Button
+                        {/* <Button
                           variant="outlined"
                           color="primary"
                           size="small"
                           onClick={() => handleEdit(item)}
                         >
                           Edit
-                        </Button>
+                        </Button> */}
                         <Button
                           variant="outlined"
                           color="error"

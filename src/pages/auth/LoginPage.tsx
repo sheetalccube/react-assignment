@@ -19,7 +19,11 @@ export default function Login() {
   const validationSchema = Yup.object({
     username: Yup.string()
       .required("Username is required")
-      .min(3, "Username must be at least 3 characters"),
+      .min(3, "Username must be at least 3 characters")
+      .matches(
+        /^[a-zA-Z0-9]+$/,
+        "Username should only contain letters and numbers"
+      ),
     password: Yup.string()
       .required("Password is required")
       .min(4, "Password must be at least 4 characters"),

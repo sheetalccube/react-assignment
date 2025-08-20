@@ -13,10 +13,12 @@ import * as Yup from "yup";
 const validationSchema = Yup.object({
   firstName: Yup.string()
     .min(2, "First name must be at least 2 characters")
-    .required("First name is required"),
+    .required("First name is required")
+    .matches(/^[a-zA-Z ]+$/, "Name should only contain letters and spaces"),
   lastName: Yup.string()
     .min(2, "Last name must be at least 2 characters")
-    .required("Last name is required"),
+    .required("Last name is required")
+    .matches(/^[a-zA-Z ]+$/, "Name should only contain letters and spaces"),
   email: Yup.string()
     .email("Invalid email format")
     .required("Email is required"),
