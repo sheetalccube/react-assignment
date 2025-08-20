@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Box, Typography, Container, Paper } from "@mui/material";
+
 function Home() {
   const isLoggedIn = localStorage.getItem("token");
 
@@ -15,15 +16,12 @@ function Home() {
             navigation bar above to explore different sections like Todos,
             Users, Forms, and more.
             <br />
-            
-              {isLoggedIn
-                ? "You are currently logged in. Enjoy browsing your content!"
-                : "You are not logged in. Please log in to access protected pages."}
-            
+            {isLoggedIn
+              ? "You are currently logged in. Enjoy browsing your content!"
+              : "You are not logged in. Please log in to access protected pages."}
           </Typography>
         </Paper>
 
-        {/* This is where child routes will render */}
         <Box sx={{ mt: 4 }}>
           <Outlet />
         </Box>
