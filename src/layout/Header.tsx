@@ -1,9 +1,10 @@
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 import useHeaderStyle from "./HeaderStyle";
+import { type ThemeMode } from "@/Constants/ReusableText";
 
 interface HeaderProps {
-  mode: "light" | "dark";
+  mode: ThemeMode;
   onToggleTheme: () => void;
 }
 function Header({ mode, onToggleTheme }: HeaderProps) {

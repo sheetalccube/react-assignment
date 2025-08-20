@@ -5,6 +5,7 @@ import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { getTheme } from "@/Styles/Theme";
 import App from "@/App";
 import Home from "./Pages/Auth/Home/Home";
+import { type ThemeMode, THEME } from "@/Constants/ReusableText";
 
 const LoginPage = React.lazy(() => import("@/Pages/Auth/LoginPage"));
 const SignupPage = React.lazy(() => import("@/Pages/Auth/Signup"));
@@ -14,8 +15,9 @@ import withPublic from "@/Hoc/withPublic";
 import withAuth from "@/Hoc/WithAuth";
 
 function MainApp() {
-  const [mode, setMode] = useState<"light" | "dark">("light");
-  const toggleTheme = () => setMode(mode === "light" ? "dark" : "light");
+  const [mode, setMode] = useState<ThemeMode>(THEME.Light);
+  const toggleTheme = () =>
+    setMode(mode === THEME.Light ? THEME.Dark : THEME.Light);
 
   const PublicLogin = withPublic(LoginPage);
   const PublicSignup = withPublic(SignupPage);
