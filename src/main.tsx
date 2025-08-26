@@ -11,7 +11,7 @@ const LoginPage = React.lazy(() => import("@/Pages/Auth/LoginPage"));
 const SignupPage = React.lazy(() => import("@/Pages/Auth/Signup"));
 const Todos = React.lazy(() => import("@/Pages/Todos"));
 
-import withPublic from "@/Hoc/withPublic";
+import withPublic from "@/Hoc/WithPublic";
 import withAuth from "@/Hoc/WithAuth";
 
 function MainApp() {

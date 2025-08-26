@@ -1,4 +1,4 @@
-# My Todo App
+# React Assignment
 
 A simple and responsive **Todo Application** built with **React**, **TypeScript**, and **Vite**. It helps users manage daily tasks efficiently with features like dark/light mode, and responsive design.
 
